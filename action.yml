@@ -1,0 +1,26 @@
+# action.yml
+name: 'docker-push-pull'
+description: 'Utility to pull and repush images'
+inputs:
+  image:  # docker path image
+    description: 'Image name'
+    required: true
+    default: ''
+  user:  # user
+    description: 'Docker user'
+    required: true
+    default: ''
+  pw:  # user
+    description: 'Docker pw'
+    required: true
+    default: ''
+outputs:
+  return: # string with output
+    description: 'Ok if success'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.image }}
+    - ${{ inputs.user }}
+    - ${{ inputs.pw }} 
