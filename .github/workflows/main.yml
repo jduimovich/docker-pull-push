@@ -1,0 +1,23 @@
+
+name: DockerPullPush
+
+env: 
+  REGISTRY: docker.io/jduimovich 
+  REGISTRY_USER: jduimovich
+  REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+
+on: [push]
+
+jobs:
+  test_dpp_job:
+    runs-on: ubuntu-latest
+    name: docker pull push
+    steps:  
+    - name: Pull and Re-push
+      id: dpp
+      uses: jduimovich/docker-pull-push@master
+      with:
+        image: 'docker pull docker.io/jduimovich/rgb:81f3d0b'
+        user: ${{ env.REGISTRY_USER }}
+        pw: ${{ secrets.REGISTRY_PASSWORD }}
+ 
