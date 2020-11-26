@@ -1,5 +1,5 @@
 # action.yml
-name: 'docker-push-pull'
+name: 'docker-pull-push'
 description: 'Utility to pull and repush images'
 inputs:
   image:  # docker path image
